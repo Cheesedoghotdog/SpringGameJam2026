@@ -586,9 +586,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -614,10 +614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerrigidbody: {fileID: 440821137}
-  runAccel: 0.04
-  maxSpeed: 2
+  runAccel: 8
+  maxSpeed: 8
   jumpingPower: 5
   groundCheck: {fileID: 415354577}
+  MainCam: {fileID: 519420031}
 --- !u!70 &440821139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

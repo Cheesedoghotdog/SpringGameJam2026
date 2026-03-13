@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float jumpingPower;
     [SerializeField] BoxCollider2D groundCheck;
+    [SerializeField] Camera MainCam;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerrigidbody.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * runAccel, 0.0f);
+        playerrigidbody.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * runAccel * Time.deltaTime, 0.0f);
         if (playerrigidbody.velocity.x >= maxSpeed || playerrigidbody.velocity.x <= -maxSpeed) {
             playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.99f, playerrigidbody.velocity.y);
             //This slows the player down if they're going above the max speed.
         }
         if (Input.GetAxisRaw("Horizontal") == 0.0f) {
-            playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.9f, playerrigidbody.velocity.y);
+            playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.98f, playerrigidbody.velocity.y);
             //This slows the player down even faster if they aren't pressing anything.
         }
 
@@ -37,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
             //This extends the player jump if they hold the button down.
 
         }
+
+        if(Input.GetMouseButtonDown(0)){
+            Debug.Log("there was a click at " + MainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, MainCam.nearClipPlane)));
+        }
+
     }
 
     public bool IsOnGround() {
