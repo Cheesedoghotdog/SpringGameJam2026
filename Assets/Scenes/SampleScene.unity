@@ -470,7 +470,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4659595}
@@ -600,7 +600,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &440821138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +617,7 @@ MonoBehaviour:
   runAccel: 0.04
   maxSpeed: 2
   jumpingPower: 5
+  groundCheck: {fileID: 415354577}
 --- !u!70 &440821139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
