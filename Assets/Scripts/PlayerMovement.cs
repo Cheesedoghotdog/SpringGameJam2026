@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpingPower;
     [SerializeField] BoxCollider2D groundCheck;
     [SerializeField] Camera MainCam;
+    [SerializeField] Vector2 DirectionToMouse;
+    [SerializeField] Vector2 MousePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+
+        MousePos = MainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("there was a click at " + MainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, MainCam.nearClipPlane)));
+            DirectionToMouse = (MousePos - (new Vector2(playerrigidbody.position.x, playerrigidbody.position.y))).normalized;
+            Debug.Log("there was a click at " + MousePos);
+            Debug.Log(DirectionToMouse);
         }
 
     }
