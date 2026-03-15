@@ -816,6 +816,8 @@ MonoBehaviour:
   MainCam: {fileID: 519420031}
   DirectionToMouse: {x: 0, y: 0}
   MousePos: {x: 0, y: 0}
+  grappleDistanceVector: {x: 0, y: 0}
+  grappleRope: {fileID: 70087763}
 --- !u!70 &440821139
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
