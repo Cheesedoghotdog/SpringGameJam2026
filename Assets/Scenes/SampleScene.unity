@@ -469,7 +469,7 @@ Transform:
   m_GameObject: {fileID: 359950189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -490,7 +490,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grappleRope: {fileID: 548507921}
   grappleToAll: 1
-  grappableLayerNumber: 6
+  grappableLayerNumber: 8
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   m_camera: {fileID: 519420031}
   gunHolder: {fileID: 440821135}
   gunPivot: {fileID: 1657321377}
@@ -1014,7 +1017,7 @@ MonoBehaviour:
   grapplingGun: {fileID: 359950191}
   m_lineRenderer: {fileID: 548507922}
   percision: 40
-  straightenLineSpeed: 10
+  straightenLineSpeed: 0.49
   ropeAnimationCurve:
     serializedVersion: 2
     m_Curve:
