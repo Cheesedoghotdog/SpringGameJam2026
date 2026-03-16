@@ -10,10 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpingPower;
     [SerializeField] BoxCollider2D groundCheck;
     [SerializeField] Camera MainCam;
-    [SerializeField] Vector2 DirectionToMouse;
-    [SerializeField] Vector2 MousePos;
-    [SerializeField] Vector2 grappleDistanceVector;
-    public WebRope grappleRope;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,26 +37,6 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) && playerrigidbody.velocity.y > 0f) {
             playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x, playerrigidbody.velocity.y * 0.5f);
             //This extends the player jump if they hold the button down.
-
-        }
-
-
-        MousePos = MainCam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
-        if(Input.GetKeyDown(KeyCode.Mouse0)) {
-            DirectionToMouse = (MousePos - (new Vector2(playerrigidbody.position.x, playerrigidbody.position.y))).normalized;
-            Debug.Log("there was a click at " + MousePos);
-            Debug.Log(DirectionToMouse);
-            RaycastHit2D _hit = Physics2D.Raycast(playerrigidbody.position, DirectionToMouse);
-            Debug.Log("cccc");
-            if (_hit.transform.gameObject.layer != null) {
-                Debug.Log("bbbb");
-                if (Vector2.Distance(_hit.point, playerrigidbody.position) >= 0) {
-                    grappleDistanceVector = _hit.point - (Vector2)playerrigidbody.position;
-                    playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x + grappleDistanceVector.x, playerrigidbody.velocity.y + grappleDistanceVector.y);
-                    grappleRope.enabled = true;
-                    Debug.Log("aaaaa");
-                }
-            }
 
         }
 
