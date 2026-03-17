@@ -22,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerrigidbody.velocity += new Vector2(Input.GetAxisRaw("Horizontal") * runAccel * Time.deltaTime, 0.0f);
         if (playerrigidbody.velocity.x >= maxSpeed || playerrigidbody.velocity.x <= -maxSpeed) {
-            playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.99f, playerrigidbody.velocity.y);
+            //playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.99f, playerrigidbody.velocity.y);
             //This slows the player down if they're going above the max speed.
         }
         if (Input.GetAxisRaw("Horizontal") == 0.0f) {
-            playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.98f, playerrigidbody.velocity.y);
+            //playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x * 0.98f, playerrigidbody.velocity.y);
             //This slows the player down even faster if they aren't pressing anything.
         }
 
