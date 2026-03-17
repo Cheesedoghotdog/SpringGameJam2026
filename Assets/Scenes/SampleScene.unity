@@ -503,10 +503,10 @@ MonoBehaviour:
   rotateOverTime: 1
   rotationSpeed: 4
   hasMaxDistance: 1
-  maxDistnace: 20
+  maxDistnace: 9
   launchToPoint: 1
   launchType: 1
-  launchSpeed: 1
+  launchSpeed: 0.75
   autoConfigureDistance: 0
   targetDistance: 3
   targetFrequncy: 1
@@ -1025,17 +1025,35 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.6
+      outSlope: 0.6
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
+      time: 0.25
+      value: 0.15
       inSlope: 0
       outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.75
+      value: -0.15
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.6
+      outSlope: 0.6
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
