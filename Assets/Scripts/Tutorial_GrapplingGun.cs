@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Tutorial_GrapplingGun : MonoBehaviour
 {
@@ -48,6 +50,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
+    [HideInInspector] public bool canGrapple = true;
 
     private void Start()
     {
@@ -58,9 +61,17 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (canGrapple == false) {
+            grappleRope.enabled = false;
+            m_springJoint2D.enabled = false;
+            m_rigidbody.gravityScale = 1;
+            canGrapple = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canGrapple == true)
         {
             SetGrapplePoint();
+            StartCoroutine(endGrapple());
+            
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -84,11 +95,12 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse0) || canGrapple == false)
         {
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
+            canGrapple = true;
         }
         else
         {
@@ -179,6 +191,12 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(firePoint.position, maxDistnace);
         }
+    }
+
+    private IEnumerator endGrapple() {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("aa");
+        canGrapple = false;
     }
 
 }
