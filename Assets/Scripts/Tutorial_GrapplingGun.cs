@@ -11,6 +11,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int grappableLayerNumber = 9;
     [SerializeField] private LayerMask GroundLayer;
+    [SerializeField] private LayerMask EnemyLayer;
 
     [Header("Main Camera:")]
     public Camera m_camera;
@@ -51,6 +52,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
     [HideInInspector] public bool canGrapple = true;
+    [HideInInspector] public bool grappleRecovers = true;
 
     private void Start()
     {
@@ -62,7 +64,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(GlobalVariables.GrappleValue);
         if (GlobalVariables.GrappleValue <= 0.0f) {
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
@@ -71,7 +72,9 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && GlobalVariables.GrappleValue >= 1.0f)
         {
+            Debug.Log(GlobalVariables.GrappleValue);
             SetGrapplePoint();
+            Debug.Log("a");
             StartCoroutine(endGrapple());
             
         }
@@ -102,9 +105,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
-            if (GlobalVariables.GrappleValue < 1.0f) {
-                StartCoroutine(returnGrapple());
-            }
         }
         else
         {
@@ -134,8 +134,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, GroundLayer))
         {
             RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, GroundLayer);
-            Debug.Log(_hit.transform.gameObject.layer);
-            Debug.Log(GroundLayer);
             if (_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll)
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
@@ -144,6 +142,13 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
                 }
+            }
+        }
+        if (Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, EnemyLayer)) {
+            RaycastHit2D _hitEnemy = Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, EnemyLayer);
+            if (_hitEnemy.transform.gameObject != null) {
+                Debug.Log(_hitEnemy.transform.gameObject);
+                Destroy(_hitEnemy.transform.gameObject);
             }
         }
     }
@@ -198,19 +203,19 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     }
 
     private IEnumerator endGrapple() {
+        Debug.Log("aa");
+        grappleRecovers = false;
         for (int i = 0; i < 20; i++) {
         yield return new WaitForSeconds(0.1f);
         GlobalVariables.GrappleValue -= 0.05f;
         }
+        yield return new WaitForSeconds(1.0f);
+        grappleRecovers = true;
     }
 
-    private IEnumerator returnGrapple() {
-        yield return new WaitForSeconds(1.0f);
-        for (int i = 0; i < 20; i++) {
-        yield return new WaitForSeconds(0.1f);
-        if (GlobalVariables.GrappleValue < 1.0f) {
+    void FixedUpdate() {
+        if (GlobalVariables.GrappleValue < 1.0f && grappleRecovers == true) {
             GlobalVariables.GrappleValue += 0.05f;
-        }
         }
     }
 

@@ -624,6 +624,9 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   m_camera: {fileID: 519420031}
   gunHolder: {fileID: 440821135}
   gunPivot: {fileID: 1657321377}
@@ -643,6 +646,7 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0}
   grappleDistanceVector: {x: 0, y: 0}
   canGrapple: 1
+  grappleRecovers: 1
 --- !u!61 &359950192
 BoxCollider2D:
   m_ObjectHideFlags: 0
