@@ -56,18 +56,20 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     {
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
+        GlobalVariables.GrappleValue = 1.0f;
 
     }
 
     private void Update()
     {
-        if (canGrapple == false) {
+        Debug.Log(GlobalVariables.GrappleValue);
+        if (GlobalVariables.GrappleValue <= 0.0f) {
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
             canGrapple = true;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canGrapple == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && GlobalVariables.GrappleValue >= 1.0f)
         {
             SetGrapplePoint();
             StartCoroutine(endGrapple());
@@ -100,7 +102,9 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
-            canGrapple = true;
+            if (GlobalVariables.GrappleValue < 1.0f) {
+                StartCoroutine(returnGrapple());
+            }
         }
         else
         {
@@ -194,9 +198,20 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     }
 
     private IEnumerator endGrapple() {
+        for (int i = 0; i < 20; i++) {
+        yield return new WaitForSeconds(0.1f);
+        GlobalVariables.GrappleValue -= 0.05f;
+        }
+    }
+
+    private IEnumerator returnGrapple() {
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("aa");
-        canGrapple = false;
+        for (int i = 0; i < 20; i++) {
+        yield return new WaitForSeconds(0.1f);
+        if (GlobalVariables.GrappleValue < 1.0f) {
+            GlobalVariables.GrappleValue += 0.05f;
+        }
+        }
     }
 
 }
