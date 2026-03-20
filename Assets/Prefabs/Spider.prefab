@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 5430420179347088482}
   - component: {fileID: 5983412112312930963}
   - component: {fileID: 8435141108515353938}
+  - component: {fileID: 2367101360392478738}
   m_Layer: 8
   m_Name: Spider
   m_TagString: Untagged
@@ -500,6 +501,27 @@ SpringJoint2D:
   m_Distance: 0.22882082
   m_DampingRatio: 0
   m_Frequency: 1000
+--- !u!95 &2367101360392478738
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920423601309883368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5316436829895830409
 GameObject:
   m_ObjectHideFlags: 0
