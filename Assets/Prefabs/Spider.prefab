@@ -418,6 +418,7 @@ MonoBehaviour:
   jumpingPower: 5
   groundCheck: {fileID: 6893310741829286307}
   MainCam: {fileID: 5432787950899930900}
+  anim: {fileID: 2367101360392478738}
 --- !u!50 &5430420179347088482
 Rigidbody2D:
   serializedVersion: 4
@@ -511,7 +512,7 @@ Animator:
   m_GameObject: {fileID: 4920423601309883368}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33478098013c0d8418d0bb630c5a088c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -551,7 +552,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.008, y: 0, z: 0}
-  m_LocalScale: {x: 0.6136611, y: 0.2700109, z: 0.6136611}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.6136611}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 461149148044461015}
@@ -688,6 +689,7 @@ MonoBehaviour:
   launchToPoint: 1
   launchType: 1
   launchSpeed: 0.55
+  anim: {fileID: 2367101360392478738}
   autoConfigureDistance: 0
   targetDistance: 3
   targetFrequncy: 1
@@ -786,9 +788,9 @@ Transform:
   m_GameObject: {fileID: 7612673534282328968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16387495, y: 0.1596996, z: -10}
+  m_LocalPosition: {x: 0, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8990045800229024579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -827,7 +829,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
