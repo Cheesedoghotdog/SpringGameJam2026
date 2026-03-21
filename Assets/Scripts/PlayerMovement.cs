@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] BoxCollider2D groundCheck;
     [SerializeField] Camera MainCam;
     [SerializeField] Animator anim;
+    [SerializeField] MusicManagement Sounds;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && IsOnGround())) {
             playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x, jumpingPower);
+            Sounds.PlaySFX("Jump");
             //This causes the player to jump when space, up arrow, or w are pressed.
         }
         if ((Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) && playerrigidbody.velocity.y > 0f) {
