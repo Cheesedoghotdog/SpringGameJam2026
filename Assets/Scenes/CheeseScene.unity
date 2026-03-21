@@ -886,9 +886,21 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 440821141}
+    - target: {fileID: 7310700451144220759, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 440821141}
     - target: {fileID: 7612673534282328968, guid: 864c514e3157882489964a1900a4940f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114180804767356149, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114180804767356149, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8990045800229024579, guid: 864c514e3157882489964a1900a4940f, type: 3}
       propertyPath: m_LocalPosition.x

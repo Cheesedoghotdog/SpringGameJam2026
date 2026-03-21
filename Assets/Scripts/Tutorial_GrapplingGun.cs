@@ -43,6 +43,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     [SerializeField] private bool launchToPoint = true;
     [SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
     [SerializeField] private float launchSpeed = 1;
+    [SerializeField] Animator anim;
 
     [Header("No Launch To Point")]
     [SerializeField] private bool autoConfigureDistance = false;
@@ -69,12 +70,13 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
             canGrapple = true;
+            anim.SetBool("Shooting", false);
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && GlobalVariables.GrappleValue >= 1.0f)
         {
             Debug.Log(GlobalVariables.GrappleValue);
             SetGrapplePoint();
-            Debug.Log("a");
+            anim.SetBool("Shooting", true);
             StartCoroutine(endGrapple());
             
         }
@@ -105,6 +107,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
+            anim.SetBool("Shooting", false);
         }
         else
         {
