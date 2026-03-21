@@ -63,6 +63,11 @@ public class MosquitoFollowing : MonoBehaviour
             if (Mathf.Abs(rb.velocity.y) >= enemyMaxSpeed) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.999f);
             }
+            if (rb.velocity.x < 0) {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+            } else {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
     }
 }
