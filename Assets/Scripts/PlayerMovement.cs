@@ -43,15 +43,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (playerrigidbody.velocity.y > 0) {
+        if (playerrigidbody.velocity.y > 0.1f) {
             anim.SetBool("Rising", true);
             anim.SetBool("Falling", false);
-        }
-        if (playerrigidbody.velocity.y < 0) {
+        } else if (playerrigidbody.velocity.y < -0.1f) {
             anim.SetBool("Rising", false);
             anim.SetBool("Falling", true);
-        }
-        if (playerrigidbody.velocity.y == 0) {
+        } else {
             anim.SetBool("Rising", false);
             anim.SetBool("Falling", false);
             if(Mathf.Abs(playerrigidbody.velocity.x) > 0) {

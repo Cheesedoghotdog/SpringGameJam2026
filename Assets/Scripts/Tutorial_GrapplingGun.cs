@@ -77,7 +77,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             Debug.Log(GlobalVariables.GrappleValue);
             SetGrapplePoint();
             anim.SetBool("Shooting", true);
-            StartCoroutine(endGrapple());
             
         }
         else if (Input.GetKey(KeyCode.Mouse0))
@@ -141,6 +140,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
+                    StartCoroutine(endGrapple());
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
@@ -150,6 +150,8 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, EnemyLayer)) {
             RaycastHit2D _hitEnemy = Physics2D.Raycast(firePoint.position, distanceVector.normalized, 1000.0f, EnemyLayer);
             if (_hitEnemy.transform.gameObject != null) {
+                GlobalVariables.GrappleValue = 0.0f;
+                StartCoroutine(endGrapple());
                 Debug.Log(_hitEnemy.transform.gameObject);
                 Destroy(_hitEnemy.transform.gameObject);
             }
@@ -209,8 +211,10 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         Debug.Log("aa");
         grappleRecovers = false;
         for (int i = 0; i < 20; i++) {
-        yield return new WaitForSeconds(0.1f);
-        GlobalVariables.GrappleValue -= 0.05f;
+        if (Input.GetKey(KeyCode.Mouse0)) {
+            yield return new WaitForSeconds(0.1f);
+            GlobalVariables.GrappleValue -= 0.05f;
+        }
         }
         yield return new WaitForSeconds(1.0f);
         grappleRecovers = true;
