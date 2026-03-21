@@ -54,6 +54,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     [HideInInspector] public Vector2 grappleDistanceVector;
     [HideInInspector] public bool canGrapple = true;
     [HideInInspector] public bool grappleRecovers = true;
+    [SerializeField] MusicManagement Sounds;
 
     private void Start()
     {
@@ -78,6 +79,8 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             SetGrapplePoint();
             anim.SetBool("Shooting", true);
             
+        } else if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            Sounds.PlaySFX("EndGrapple");
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -144,6 +147,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
+                    Sounds.PlaySFX("Grapple");
                 }
             }
         }
@@ -155,6 +159,10 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                 Debug.Log(_hitEnemy.transform.gameObject);
                 Destroy(_hitEnemy.transform.gameObject);
             }
+        }
+        if (grappleRope.enabled == false && GlobalVariables.GrappleValue >= 1.0f) {
+            Debug.Log("aaa");
+            Sounds.PlaySFX("EndGrapple");
         }
     }
 
@@ -223,6 +231,10 @@ public class Tutorial_GrapplingGun : MonoBehaviour
     void FixedUpdate() {
         if (GlobalVariables.GrappleValue < 1.0f && grappleRecovers == true) {
             GlobalVariables.GrappleValue += 0.05f;
+        }
+        if (GlobalVariables.GrappleValue >= 1.0f && grappleRecovers == true) {
+            Sounds.PlaySFX("CanGrapple");
+            grappleRecovers = false;
         }
     }
 
