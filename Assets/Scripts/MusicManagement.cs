@@ -23,6 +23,7 @@ public class MusicManagement : MonoBehaviour
         if(s == null) {
             Debug.Log("No Sounds");
         } else {
+            SFXSource.pitch = UnityEngine.Random.Range(0.85f, 1.15f);
             SFXSource.clip = s.clip;
             SFXSource.Play();
         }
