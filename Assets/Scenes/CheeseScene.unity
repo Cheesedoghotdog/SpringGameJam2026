@@ -870,10 +870,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 5648507687486746693, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648507687486746693, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648507687486746693, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6315710916585055873, guid: 864c514e3157882489964a1900a4940f, type: 3}
       propertyPath: anim
       value: 
       objectReference: {fileID: 440821141}
+    - target: {fileID: 7612673534282328968, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8990045800229024579, guid: 864c514e3157882489964a1900a4940f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16387495

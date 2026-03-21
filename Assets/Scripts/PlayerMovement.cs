@@ -55,9 +55,9 @@ public class PlayerMovement : MonoBehaviour
             if(Mathf.Abs(playerrigidbody.velocity.x) > 0) {
                 anim.SetBool("Running", true);
                 if (playerrigidbody.velocity.x > 0) {
-                    gameObject.transform.localScale = new Vector2(1, 1);
+                    gameObject.transform.localScale = new Vector3(1, 1, 1);
                 } else {
-                    gameObject.transform.localScale = new Vector2(-1, 1);
+                    gameObject.transform.localScale = new Vector3(-1, 1, 1);
                 }
             } else {
                 anim.SetBool("Running", false);
