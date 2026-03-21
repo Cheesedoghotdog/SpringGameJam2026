@@ -544,6 +544,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8990045800229024579, guid: 864c514e3157882489964a1900a4940f, type: 3}
   m_PrefabInstance: {fileID: 5202244655098666304}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &440821141 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2367101360392478738, guid: 864c514e3157882489964a1900a4940f, type: 3}
+  m_PrefabInstance: {fileID: 5202244655098666304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &609130074
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 6315710916585055873, guid: 864c514e3157882489964a1900a4940f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 440821141}
     - target: {fileID: 8990045800229024579, guid: 864c514e3157882489964a1900a4940f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16387495

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpingPower;
     [SerializeField] BoxCollider2D groundCheck;
     [SerializeField] Camera MainCam;
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,29 @@ public class PlayerMovement : MonoBehaviour
             playerrigidbody.velocity = new Vector2(playerrigidbody.velocity.x, playerrigidbody.velocity.y * 0.5f);
             //This extends the player jump if they hold the button down.
 
+        }
+
+        if (playerrigidbody.velocity.y > 0) {
+            anim.SetBool("Rising", true);
+            anim.SetBool("Falling", false);
+        }
+        if (playerrigidbody.velocity.y < 0) {
+            anim.SetBool("Rising", false);
+            anim.SetBool("Falling", true);
+        }
+        if (playerrigidbody.velocity.y == 0) {
+            anim.SetBool("Rising", false);
+            anim.SetBool("Falling", false);
+            if(Mathf.Abs(playerrigidbody.velocity.x) > 0) {
+                anim.SetBool("Running", true);
+                if (playerrigidbody.velocity.x > 0) {
+                    gameObject.transform.localScale = new Vector2(1, 1);
+                } else {
+                    gameObject.transform.localScale = new Vector2(-1, 1);
+                }
+            } else {
+                anim.SetBool("Running", false);
+            }
         }
 
     }
