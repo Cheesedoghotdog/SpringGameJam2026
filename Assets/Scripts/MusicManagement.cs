@@ -5,7 +5,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class MusicManagement : MonoBehaviour
 {
-    public Sound[] musicSounds, sfxSounds;
+    public Sound[] musicSounds, SFXSounds;
     public AudioSource musicSource, SFXSource;
 
     public void PlayMusic(string name) {
@@ -15,6 +15,16 @@ public class MusicManagement : MonoBehaviour
         } else {
             musicSource.clip = s.clip;
             musicSource.Play();
+        }
+    }
+
+    public void PlaySFX(string name) {
+        Sound s = Array.Find(SFXSounds, x => x.name == name);
+        if(s == null) {
+            Debug.Log("No Sounds");
+        } else {
+            SFXSource.clip = s.clip;
+            SFXSource.Play();
         }
     }
 
