@@ -8,7 +8,7 @@ public class HealthBarUI : MonoBehaviour
 
     private UnityEngine.UI.Image _healthBarForegroundImage;
 
-    public void UpdateHealthBar(HealthController healthController){
+    public void UpdateHealthBar(){
 
         
 
