@@ -34,10 +34,12 @@ public class ObjectSpawner : MonoBehaviour
     {
         isSpawning = true;
         GatherValidPositions();
-        while (ActiveObjectCount() < maxObjects)
+        while (GlobalVariables.GrappleValue < 100.0f)
         {
-            SpawnObject();
-            yield return new WaitForSeconds(spawnInterval);
+            if (ActiveObjectCount() < maxObjects) {
+                SpawnObject();
+                yield return new WaitForSeconds(spawnInterval);
+            }
         }
         isSpawning = false;
     }
