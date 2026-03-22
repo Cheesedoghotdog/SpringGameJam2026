@@ -542,6 +542,8 @@ MonoBehaviour:
   healthUI: {fileID: 0}
   playerrigidbody: {fileID: 5430420179347088482}
   Sounds: {fileID: 6841049376989797473}
+  Playerhitbox: {fileID: 5983412112312930963}
+  anim: {fileID: 2367101360392478738}
 --- !u!1 &5316436829895830409
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +696,7 @@ MonoBehaviour:
     m_Bits: 64
   EnemyLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   m_camera: {fileID: 5432787950899930900}
   gunHolder: {fileID: 8990045800229024579}
   gunPivot: {fileID: 7287738178942701860}

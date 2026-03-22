@@ -75,7 +75,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && GlobalVariables.GrappleValue >= 1.0f)
         {
-            Debug.Log(GlobalVariables.GrappleValue);
             SetGrapplePoint();
             anim.SetBool("Shooting", true);
             
@@ -161,7 +160,6 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             }
         }
         if (grappleRope.enabled == false && GlobalVariables.GrappleValue >= 1.0f) {
-            Debug.Log("aaa");
             Sounds.PlaySFX("EndGrapple");
         }
     }

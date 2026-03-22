@@ -11,6 +11,8 @@ public class UI_PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] Rigidbody2D playerrigidbody;
     [SerializeField] MusicManagement Sounds;
+    [SerializeField] CapsuleCollider2D Playerhitbox;
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,6 @@ public class UI_PlayerHealth : MonoBehaviour
         healthUI.setMaxBalls(maxHealth);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
     
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,12 +50,14 @@ public class UI_PlayerHealth : MonoBehaviour
     private IEnumerator FlashBlack()
     {
         Sounds.PlaySFX("Hurt");
+        anim.SetTrigger("Hurt");
         spriteRenderer.color = Color.black;
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
     }
 
     private IEnumerator Death() {
+        anim.SetTrigger("Ded");
         Sounds.PlaySFX("Death");
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadSceneAsync(0);

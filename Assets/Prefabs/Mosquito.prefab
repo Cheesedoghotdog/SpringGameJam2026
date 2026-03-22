@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7226405953868199285}
   - component: {fileID: 7603150118459376861}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: enemyWallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
