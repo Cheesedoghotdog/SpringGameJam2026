@@ -11,6 +11,7 @@ public class MosquitoFollowing : MonoBehaviour
     [SerializeField] private float enemyAcceleration;
     [SerializeField] private float enemyMaxSpeed;
     [SerializeField] private float wallBounce;
+    [SerializeField] AudioSource buzzsound;
     //If the player gets closer than this, the enemy starts following if the enemy is watching for a player.
 
     [SerializeField] private int enemyStartingMode;
@@ -30,6 +31,7 @@ public class MosquitoFollowing : MonoBehaviour
 
     void Update()
     {
+        buzzsound.Play();
         if (enemyMode == 0) {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
             if (distanceToPlayer <= enemyActivationDistance) {
