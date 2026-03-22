@@ -210,6 +210,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   healthUI: {fileID: 881947552}
+  playerrigidbody: {fileID: 132368278}
+--- !u!50 &132368278 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5430420179347088482, guid: 864c514e3157882489964a1900a4940f, type: 3}
+  m_PrefabInstance: {fileID: 132368263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &253363146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,9 +1744,21 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 143
     m_Data: {fileID: 11400000, guid: 8b8de40febf884edcb4d0817b530b2b9, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 143
     m_Data: {fileID: 446259015, guid: 38920e9b3c85949918cdfaef854f8873, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 143
     m_Data:
@@ -9124,10 +9142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mosquito
       objectReference: {fileID: 0}
-    - target: {fileID: 6765224191711063645, guid: c3fde223cc2e09649aa67ce5a79c7c85, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7484359686217066965, guid: c3fde223cc2e09649aa67ce5a79c7c85, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.42
@@ -9170,11 +9184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8576343440183663251, guid: c3fde223cc2e09649aa67ce5a79c7c85, type: 3}
       propertyPath: m_Size.x
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8576343440183663251, guid: c3fde223cc2e09649aa67ce5a79c7c85, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.08
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

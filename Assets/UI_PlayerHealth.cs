@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UI_PlayerHealth : MonoBehaviour
     private int currentHealth;
     public HealthUI healthUI;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] Rigidbody2D playerrigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +34,12 @@ public class UI_PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthUI.UpdateBalls(currentHealth);
-
+        playerrigidbody.velocity = new Vector2(-playerrigidbody.velocity.x, -playerrigidbody.velocity.y);
         StartCoroutine(FlashBlack());
 
         if(currentHealth <= 0)
         {
-            //player dead
+            SceneManager.LoadSceneAsync(0);
         }
 
     }
