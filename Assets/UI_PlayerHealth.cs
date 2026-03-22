@@ -10,6 +10,7 @@ public class UI_PlayerHealth : MonoBehaviour
     public HealthUI healthUI;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Rigidbody2D playerrigidbody;
+    [SerializeField] MusicManagement Sounds;
 
     // Start is called before the first frame update
     void Start()
@@ -35,19 +36,27 @@ public class UI_PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         healthUI.UpdateBalls(currentHealth);
         playerrigidbody.velocity = new Vector2(-playerrigidbody.velocity.x, -playerrigidbody.velocity.y);
-        StartCoroutine(FlashBlack());
 
         if(currentHealth <= 0)
         {
-            SceneManager.LoadSceneAsync(0);
+            StartCoroutine(Death());
+        } else {
+            StartCoroutine(FlashBlack());
         }
 
     }
 
     private IEnumerator FlashBlack()
     {
+        Sounds.PlaySFX("Hurt");
         spriteRenderer.color = Color.black;
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
+    }
+
+    private IEnumerator Death() {
+        Sounds.PlaySFX("Death");
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadSceneAsync(0);
     }
 }

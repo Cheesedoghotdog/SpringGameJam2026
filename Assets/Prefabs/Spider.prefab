@@ -541,6 +541,7 @@ MonoBehaviour:
   maxHealth: 3
   healthUI: {fileID: 0}
   playerrigidbody: {fileID: 5430420179347088482}
+  Sounds: {fileID: 6841049376989797473}
 --- !u!1 &5316436829895830409
 GameObject:
   m_ObjectHideFlags: 0
