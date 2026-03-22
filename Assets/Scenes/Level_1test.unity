@@ -69792,7 +69792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MosquitoPrefab: {fileID: 1913537489}
   maxObjects: 20
-  spawnInterval: 3
+  spawnInterval: 5
   spawnPoints:
   - {fileID: 1790563406}
   - {fileID: 1526078429}

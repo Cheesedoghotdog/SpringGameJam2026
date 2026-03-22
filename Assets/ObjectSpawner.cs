@@ -68,7 +68,6 @@ public class ObjectSpawner : MonoBehaviour
                 validPositionFound = true;
             }
 
-            validSpawnPositions.RemoveAt(randomIndex);
 
         }
 
